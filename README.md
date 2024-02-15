@@ -3,4 +3,4 @@ Este es un proyecto estudiantil desarrollado durante la cursada de Desarrollo de
 
 ## Muestra de la app
 A continuacion se muestra un gif que permite visulizar el funcionamiento de la app
-![]()
+![](https://github.com/fiofiorito/proyecto-entregable-desarrollo-apps/blob/main/assets/app.gif)
