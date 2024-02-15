@@ -12,7 +12,7 @@ const App = () => {
 
   const [selectedCategory, setSelectedCategory] = useState('');
   const [productId, setProductId] = useState(0)
-  const [modalVisibility, setModalVisibility] = useState(false)
+
   if (!fontsLoaded) return null
 
   const handleCategory = (category) => {
@@ -41,7 +41,7 @@ const App = () => {
 
         {
           selectedCategory ?
-            productId ? <ProductDetail goBack={goBack} modalVisibility={modalVisibility} productId={productId} /> :
+            productId ? <ProductDetail goBack={goBack} productId={productId} /> :
               <ProductsByCategory goBack={goBack} selectedCategory={selectedCategory} handleProductId={handleProductId} /> :
             <Home handleCategory={handleCategory} />
         }

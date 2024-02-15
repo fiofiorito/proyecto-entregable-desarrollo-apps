@@ -7,15 +7,19 @@ import fonts from '../utils/global/fonts';
 import ModalBuyProduct from './ModalBuyProduct';
 import GoBackButton from './GoBackButton';
 
-const ProductDetail = ({ productId, modalVisibility, goBack }) => {
+const ProductDetail = ({ productId, goBack, }) => {
     const [product, setProduct] = useState({});
+    const [productTitle, setProductTitle] = useState('');
+    const [modalVisibility, setModalVisibility] = useState(false);
+
     useEffect(() => {
         const product = products.find(product => product.id === productId)
         setProduct(product)
     }, [productId])
 
-    const handlePress = () => {
-        console.log('tuki comprado')
+    const handleModal = (productTitle) => {
+        setProductTitle(productTitle);
+        setModalVisibility(!modalVisibility);
     }
 
     return (
@@ -30,12 +34,12 @@ const ProductDetail = ({ productId, modalVisibility, goBack }) => {
                 <Text style={styles.price}>${product.price}</Text>
             </View>
 
-            <Pressable onPress={handlePress} style={styles.btn}>
+            <Pressable onPress={() => { handleModal(product) }} style={styles.btn}>
                 <Text style={styles.btnText}>Buy Now</Text>
             </Pressable>
             <GoBackButton goBack={goBack} />
 
-            {/* <ModalBuyProduct modalVisibility={modalVisibility} /> */}
+            <ModalBuyProduct goBack={goBack} modalVisibility={modalVisibility} productTitle={product.title} handleModal={handleModal} />
         </View>
     )
 }
