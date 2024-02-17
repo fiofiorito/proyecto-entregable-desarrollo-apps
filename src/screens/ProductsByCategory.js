@@ -1,12 +1,11 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
-import Header from '../components/Header'
+import { FlatList, StyleSheet, View } from 'react-native'
 import products from '../utils/data/products.json'
 import { useEffect, useState } from 'react'
 import ProductListByCategory from '../components/ProductListByCategory'
 import Search from '../components/Search'
-import GoBackButton from '../components/GoBackButton'
 
-const ProductsByCategory = ({ selectedCategory, handleProductId, goBack }) => {
+const ProductsByCategory = ({ route, navigation }) => {
+    const { selectedCategory } = route.params;
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [keyword, setKeyword] = useState('')
 
@@ -30,17 +29,15 @@ const ProductsByCategory = ({ selectedCategory, handleProductId, goBack }) => {
 
     return (
         <>
-            <Header title={selectedCategory} />
             <Search handleKeyword={handleKeyword} />
             <View styles={styles.flat}>
 
                 <FlatList
                     data={filteredProducts}
                     keyExtractor={item => item.id}
-                    renderItem={({ item }) => <ProductListByCategory handleProductId={handleProductId} item={item} />}
+                    renderItem={({ item }) => <ProductListByCategory navigation={navigation} item={item} />}
                 />
             </View>
-            <GoBackButton goBack={goBack} />
 
         </>
     )

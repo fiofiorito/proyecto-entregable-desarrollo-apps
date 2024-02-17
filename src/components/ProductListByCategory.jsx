@@ -3,13 +3,10 @@ import React from 'react'
 import colors from '../utils/global/colors'
 import fonts from '../utils/global/fonts'
 
-const ProductListByCategory = ({ item, handleProductId }) => {
-    const { width } = useWindowDimensions()
-
-
+const ProductListByCategory = ({ item, navigation }) => {
     return (
         <View style={styles.container}>
-            <Pressable onPress={() => handleProductId(item.id)} style={styles.card}>
+            <Pressable onPress={() => navigation.navigate('ProductDetail', { productId: item.id })} style={styles.card}>
                 <Image style={styles.img} source={{ uri: item.thumbnail }} />
                 <Text>{item.id} {item.title}</Text>
             </Pressable>

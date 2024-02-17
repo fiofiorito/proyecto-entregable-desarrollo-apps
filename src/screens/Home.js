@@ -1,13 +1,11 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
-import Header from '../components/Header'
 import Categories from '../components/Categories';
 import fonts from '../utils/global/fonts';
 
-const Home = ({ handleCategory }) => {
+const Home = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Header title='Home' />
             <View style={styles.container2}>
                 <View style={styles.hero}>
                     <View>
@@ -17,7 +15,7 @@ const Home = ({ handleCategory }) => {
                     </View>
                     <Image style={styles.img} source={require('../images/coffee.png')} />
                 </View>
-                <Categories handleCategory={handleCategory} />
+                <Categories navigation={navigation} />
             </View>
         </View>
     )

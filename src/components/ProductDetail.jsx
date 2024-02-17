@@ -7,7 +7,9 @@ import fonts from '../utils/global/fonts';
 import ModalBuyProduct from './ModalBuyProduct';
 import GoBackButton from './GoBackButton';
 
-const ProductDetail = ({ productId, goBack, }) => {
+const ProductDetail = ({ route }) => {
+    const { productId } = route.params;
+
     const [product, setProduct] = useState({});
     const [productTitle, setProductTitle] = useState('');
     const [modalVisibility, setModalVisibility] = useState(false);
@@ -24,7 +26,6 @@ const ProductDetail = ({ productId, goBack, }) => {
 
     return (
         <View style={styles.container}>
-            <Header title={product.title} />
             <View style={styles.imgBox}>
                 <Image style={styles.img} source={product ? { uri: product.images ? product.images[0] : null } : null} />
             </View>
@@ -37,9 +38,8 @@ const ProductDetail = ({ productId, goBack, }) => {
             <Pressable onPress={() => { handleModal(product) }} style={styles.btn}>
                 <Text style={styles.btnText}>Buy Now</Text>
             </Pressable>
-            <GoBackButton goBack={goBack} />
 
-            <ModalBuyProduct goBack={goBack} modalVisibility={modalVisibility} productTitle={product.title} handleModal={handleModal} />
+            {/* <ModalBuyProduct goBack={goBack} modalVisibility={modalVisibility} productTitle={product.title} handleModal={handleModal} /> */}
         </View>
     )
 }
@@ -48,7 +48,8 @@ export default ProductDetail
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 20
     },
     imgBox: {
         borderRadius: 10,

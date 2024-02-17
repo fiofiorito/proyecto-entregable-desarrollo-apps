@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         padding: 10,
         justifyContent: 'space-between',
-        marginTop: -20,
         marginBottom: 20
     },
     seachBar: {

@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text } from 'react-native'
 import colors from '../utils/global/colors'
 import fonts from '../utils/global/fonts'
 
-const Header = ({ title }) => {
+const Header = ({ title = 'Ecommerce' }) => {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Text style={styles.text}>{title}</Text>
-        </View>
+        </SafeAreaView>
     )
 }
 
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        marginBottom: 20
+
     },
     text: {
         fontSize: 20,

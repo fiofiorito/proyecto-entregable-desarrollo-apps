@@ -1,52 +1,40 @@
-import { Pressable, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native'
+import { StatusBar, StyleSheet } from 'react-native'
 import Home from './src/screens/Home'
-import { useState } from 'react'
 import ProductsByCategory from './src/screens/ProductsByCategory'
 import { useFonts } from 'expo-font'
 import fonts, { fontsCollection } from './src/utils/global/fonts'
 import ProductDetail from './src/components/ProductDetail'
 import colors from './src/utils/global/colors'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Header from './src/components/Header'
+
+
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [fontsLoaded] = useFonts(fontsCollection)
 
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [productId, setProductId] = useState(0)
-
   if (!fontsLoaded) return null
-
-  const handleCategory = (category) => {
-    setSelectedCategory(category)
-  }
-
-  const handleProductId = (id) => {
-    setProductId(id)
-  }
-
-  const goBack = () => {
-    if (productId) {
-      setProductId(0)
-      setSelectedCategory(selectedCategory)
-    }
-    else if (selectedCategory) {
-      setSelectedCategory('')
-    }
-
-  }
 
   return (
     <>
       <StatusBar style={styles.status} />
-      <View style={styles.container}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName='Home' screenOptions={({ route }) => {
+          return {
+            header: () => {
+              return <Header title={route.name === 'Home' ? 'Inicio' : route.name === 'ProductsByCategory' ? route.params.selectedCategory : 'Detalle'} />
+            }
+          }
+        }}>
+          <Stack.Screen name='Home' component={Home} />
+          <Stack.Screen name='ProductsByCategory' component={ProductsByCategory} />
+          <Stack.Screen name='ProductDetail' component={ProductDetail} />
+        </Stack.Navigator>
+      </NavigationContainer>
 
-        {
-          selectedCategory ?
-            productId ? <ProductDetail goBack={goBack} productId={productId} /> :
-              <ProductsByCategory goBack={goBack} selectedCategory={selectedCategory} handleProductId={handleProductId} /> :
-            <Home handleCategory={handleCategory} />
-        }
-
-      </View>
 
     </>
   )
