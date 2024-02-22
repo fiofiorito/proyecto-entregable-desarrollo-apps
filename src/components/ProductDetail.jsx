@@ -1,7 +1,6 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import products from '../utils/data/products.json';
-import Header from './Header';
 import colors from '../utils/global/colors';
 import fonts from '../utils/global/fonts';
 import ModalBuyProduct from './ModalBuyProduct';
