@@ -12,7 +12,7 @@ const Search = ({ handleKeyword }) => {
     const handleSearch = () => {
         const specialCharExpression = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/
         if (specialCharExpression.test(input)) {
-            setError('Caracteres de búsqueda incorrectos')
+            setError('Looks like you used invalid characters')
             return
         }
         handleKeyword(input)
@@ -30,7 +30,7 @@ const Search = ({ handleKeyword }) => {
         <>
             <View style={styles.container}>
                 <TextInput
-                    placeholder='Buscar Producto'
+                    placeholder='Search product'
                     style={styles.seachBar}
                     value={input}
                     onChangeText={handleInput}
@@ -48,6 +48,7 @@ const Search = ({ handleKeyword }) => {
             <View>
                 {error ? <View style={styles.errorCont}>
                     <Text style={styles.errorTxt}>{error}</Text>
+                    <Text style={styles.errorTxt}>Try again...</Text>
                 </View> : null}
             </View>
         </>

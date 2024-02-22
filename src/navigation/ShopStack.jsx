@@ -14,7 +14,7 @@ const ShopStack = () => {
         <Stack.Navigator initialRouteName='Home' screenOptions={({ route }) => {
             return {
                 header: () => {
-                    return <Header title={route.name === 'Home' ? 'Inicio' : route.name === 'ProductsByCategory' ? route.params.selectedCategory : 'Detalle'} />
+                    return <Header title={route.name === 'Home' ? 'Home' : route.name === 'ProductsByCategory' ? route.params.selectedCategory : 'Product Detail'} />
                 }
             }
         }}>

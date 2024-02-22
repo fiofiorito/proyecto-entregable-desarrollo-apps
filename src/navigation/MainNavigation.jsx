@@ -22,13 +22,13 @@ const MainNavigation = () => {
             }}
         >
             <Tab.Screen options={{
-                tabBarIcon: ({ focused }) => { return <TabBarIcon focused={focused} title='Inicio' /> }
+                tabBarIcon: ({ focused }) => { return <TabBarIcon focused={focused} title='Home' /> }
             }} name='ShopStack' component={ShopStack} />
             <Tab.Screen options={{
-                tabBarIcon: ({ focused }) => { return <TabBarIcon focused={focused} title='Carrito' /> }
+                tabBarIcon: ({ focused }) => { return <TabBarIcon focused={focused} title='Cart' /> }
             }} name='CartStack' component={CartStack} />
             <Tab.Screen options={{
-                tabBarIcon: ({ focused }) => { return <TabBarIcon focused={focused} title='Orden' /> }
+                tabBarIcon: ({ focused }) => { return <TabBarIcon focused={focused} title='Order' /> }
             }} name='OrderStack' component={OrderStack} />
         </Tab.Navigator>
     </NavigationContainer>
