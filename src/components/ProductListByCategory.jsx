@@ -8,7 +8,9 @@ const ProductListByCategory = ({ item, navigation }) => {
         <View style={styles.container}>
             <Pressable onPress={() => navigation.navigate('ProductDetail', { productId: item.id })} style={styles.card}>
                 <Image style={styles.img} source={{ uri: item.thumbnail }} />
-                <Text>{item.id} {item.title}</Text>
+                <View style={styles.textCont}>
+                    <Text style={styles.text}>{item.title}</Text>
+                </View>
             </Pressable>
         </View>
     )
@@ -44,7 +46,10 @@ const styles = StyleSheet.create({
         minWidth: 50,
         minHeight: 50,
     },
+    textCont: {
+        width: '60%'
+    },
     text: {
-        fontFamily: fonts.RalewayReg,
+        fontFamily: fonts.RalewayReg
     }
 })
