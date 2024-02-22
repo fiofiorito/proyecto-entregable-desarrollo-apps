@@ -6,43 +6,62 @@
         "createAt": "11/11/2024",
         "items": [
             {
-                "id": 3,
-                "quantity": 4,
-                "title": "Samsung Universe 9",
-                "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-                "price": 1249,
-                "discountPercentage": 15.46,
-                "rating": 4.09,
-                "stock": 36,
-                "brand": "Samsung",
-                "category": "smartphones",
-                "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+                "id": 1,
+                "title": "Organic Ethiopian Coffee Beans",
+                "description": "Single-origin coffee beans sourced from Ethiopia, known for their floral and fruity notes.",
+                "price": 12.99,
+                "discountPercentage": 0,
+                "rating": 4.8,
+                "stock": 100,
+                "brand": "Ethiopian Harvest",
+                "category": "Coffee Beans",
+                "thumbnail": "https://example.com/ethiopian_coffee_thumbnail.jpg",
                 "images": [
-                    "https://i.dummyjson.com/data/products/3/1.jpg"
+                    "https://example.com/ethiopian_coffee_image1.jpg",
+                    "https://example.com/ethiopian_coffee_image2.jpg",
+                    "https://example.com/ethiopian_coffee_image3.jpg"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "French Press Coffee Maker",
+                "description": "Classic French press coffee maker for brewing smooth and robust coffee.",
+                "price": 24.99,
+                "discountPercentage": 15,
+                "rating": 4.6,
+                "stock": 75,
+                "brand": "BrewMasters",
+                "category": "Coffee Accessories",
+                "thumbnail": "https://example.com/french_press_thumbnail.jpg",
+                "images": [
+                    "https://example.com/french_press_image1.jpg",
+                    "https://example.com/french_press_image2.jpg",
+                    "https://example.com/french_press_image3.jpg"
                 ]
             }
         ]
     },
     {
         "total": 230,
-        "id": 1,
+        "id": 2,
         "userId": 2,
         "createAt": "3/4/2024",
         "items": [
             {
-                "id": 3,
-                "quantity": 1,
-                "title": "Samsung Universe 9",
-                "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-                "price": 1249,
-                "discountPercentage": 15.46,
-                "rating": 4.09,
-                "stock": 36,
-                "brand": "Samsung",
-                "category": "smartphones",
-                "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+                "id": 6,
+                "title": "Coffee Syrup Sampler Pack",
+                "description": "Assorted coffee syrups sampler pack for adding flavor to your favorite coffee drinks.",
+                "price": 14.99,
+                "discountPercentage": 0,
+                "rating": 4.6,
+                "stock": 70,
+                "brand": "FlavorCraft",
+                "category": "Flavorings",
+                "thumbnail": "https://example.com/coffee_syrup_thumbnail.jpg",
                 "images": [
-                    "https://i.dummyjson.com/data/products/3/1.jpg"
+                    "https://example.com/coffee_syrup_image1.jpg",
+                    "https://example.com/coffee_syrup_image2.jpg",
+                    "https://example.com/coffee_syrup_image3.jpg"
                 ]
             }
         ]
