@@ -3,10 +3,15 @@ import React, { useEffect, useState } from 'react'
 import products from '../utils/data/products.json';
 import colors from '../utils/global/colors';
 import fonts from '../utils/global/fonts';
-import ModalBuyProduct from './ModalBuyProduct';
-import GoBackButton from './GoBackButton';
+import { useSelector, useDispatch } from 'react-redux'
+import { addCartItem } from '../features/cart/cartSlice'
+
 
 const ProductDetail = ({ route }) => {
+    const dispatch = useDispatch()
+    const cart = useSelector((state) => state.cart)
+
+
     const { productId } = route.params;
 
     const [product, setProduct] = useState({});
@@ -34,7 +39,7 @@ const ProductDetail = ({ route }) => {
                 <Text style={styles.price}>${product.price}</Text>
             </View>
 
-            <Pressable onPress={() => { handleModal(product) }} style={styles.btn}>
+            <Pressable onPress={() => dispatch(addCartItem(product))} style={styles.btn}>
                 <Text style={styles.btnText}>Buy Now</Text>
             </Pressable>
 

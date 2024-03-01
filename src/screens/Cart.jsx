@@ -1,10 +1,11 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import cart from '../utils/data/cart.json'
+import React, { useEffect } from 'react'
 import CartItem from '../components/CartItem'
-import Counter from '../components/Counter'
+import { useSelector } from 'react-redux'
 
 const Cart = () => {
+    const cart = useSelector((state) => state.cart)
+
     return (
         <View style={styles.container}>
             <FlatList
@@ -18,7 +19,6 @@ const Cart = () => {
                     <Text>Total: ${cart.total}</Text>
                 </Pressable>
             </View>
-            {/* <Counter /> */}
         </View>
     )
 }

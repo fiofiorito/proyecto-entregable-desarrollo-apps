@@ -11,16 +11,20 @@ const Counter = () => {
     const [number, setNumber] = useState(0)
 
     return (
-        <View style={styles.container}>
-            <Pressable onPress={() => dispatch(decrement())}>
-                <Text style={styles.text}>menos</Text>
-            </Pressable>
-            <Text style={styles.text}>{count}</Text>
-            <Pressable onPress={() => dispatch(increment())}>
-                <Text style={styles.text}>mas</Text>
-            </Pressable>
-            <TextInput onChangeText={(t) => setNumber(parseInt(t))} />
-            <Button title='monto' onPress={() => dispatch(incrementByAmount(number))} />
+        <View>
+            <View style={styles.container}>
+                <Pressable onPress={() => dispatch(decrement())}>
+                    <Text style={styles.text}>menos</Text>
+                </Pressable>
+                <Text style={styles.text}>{count}</Text>
+                <Pressable onPress={() => dispatch(increment())}>
+                    <Text style={styles.text}>mas</Text>
+                </Pressable>
+            </View>
+            <View style={styles.container}>
+                <TextInput onChangeText={(t) => setNumber(parseInt(t))} />
+                <Button title='monto' onPress={() => dispatch(incrementByAmount(number))} />
+            </View>
         </View>
     )
 }
