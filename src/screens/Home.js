@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import Categories from '../components/Categories';
 import fonts from '../utils/global/fonts';
+import Counter from '../components/Counter';
 
 const Home = ({ navigation }) => {
 
@@ -15,6 +16,7 @@ const Home = ({ navigation }) => {
                     </View>
                     <Image style={styles.img} source={require('../images/coffee.png')} />
                 </View>
+                <Counter />
                 <Categories navigation={navigation} />
             </View>
         </View>

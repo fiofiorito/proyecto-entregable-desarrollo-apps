@@ -3,7 +3,8 @@ import { useFonts } from 'expo-font'
 import fonts, { fontsCollection } from './src/utils/global/fonts'
 import colors from './src/utils/global/colors'
 import MainNavigation from './src/navigation/MainNavigation'
-
+import { store } from './src/app/store'
+import { Provider } from 'react-redux'
 
 const App = () => {
   const [fontsLoaded] = useFonts(fontsCollection)
@@ -13,7 +14,10 @@ const App = () => {
   return (
     <>
       <StatusBar style={styles.status} />
-      <MainNavigation />
+      <Provider store={store}>
+        <MainNavigation />
+      </Provider>
+
 
 
     </>
