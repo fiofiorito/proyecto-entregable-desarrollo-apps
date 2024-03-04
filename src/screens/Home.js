@@ -16,7 +16,7 @@ const Home = ({ navigation }) => {
                     </View>
                     <Image style={styles.img} source={require('../images/coffee.png')} />
                 </View>
-                <Counter />
+                {/* <Counter /> */}
                 <Categories navigation={navigation} />
             </View>
         </View>

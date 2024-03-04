@@ -1,32 +1,26 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import products from '../utils/data/products.json';
+import React, { useState } from 'react'
 import colors from '../utils/global/colors';
 import fonts from '../utils/global/fonts';
 import { useSelector, useDispatch } from 'react-redux'
 import { addCartItem } from '../features/cart/cartSlice'
-
+import { useGetProductQuery } from '../app/services/shop';
 
 const ProductDetail = ({ route }) => {
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart)
 
-
     const { productId } = route.params;
-
-    const [product, setProduct] = useState({});
     const [productTitle, setProductTitle] = useState('');
     const [modalVisibility, setModalVisibility] = useState(false);
-
-    useEffect(() => {
-        const product = products.find(product => product.id === productId)
-        setProduct(product)
-    }, [productId])
+    const { data: product, isLoading } = useGetProductQuery(productId)
 
     const handleModal = (productTitle) => {
         setProductTitle(productTitle);
         setModalVisibility(!modalVisibility);
     }
+
+    if (isLoading) return <View><Text>Loading...</Text></View>
 
     return (
         <View style={styles.container}>

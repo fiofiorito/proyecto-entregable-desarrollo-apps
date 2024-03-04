@@ -3,25 +3,25 @@ import products from '../utils/data/products.json'
 import { useEffect, useState } from 'react'
 import ProductListByCategory from '../components/ProductListByCategory'
 import Search from '../components/Search'
+import { useGetProductsByCategoryQuery } from '../app/services/shop'
 
 const ProductsByCategory = ({ route, navigation }) => {
     const { selectedCategory } = route.params;
+    const { data: products } = useGetProductsByCategoryQuery(selectedCategory)
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [keyword, setKeyword] = useState('')
 
     useEffect(() => {
-        if (selectedCategory) {
-            setFilteredProducts(products.filter(product => product.category === selectedCategory))
-        }
+        setFilteredProducts(products)
         if (keyword) {
-            setFilteredProducts(filteredProducts.filter(product => {
+            setFilteredProducts(products.filter(product => {
                 const productLower = product.title.toLowerCase()
                 const keywordLower = keyword.toLowerCase()
                 return productLower.includes(keywordLower)
             }))
         }
 
-    }, [selectedCategory, keyword])
+    }, [selectedCategory, keyword, products])
 
     const handleKeyword = (keywrd) => {
         setKeyword(keywrd)
