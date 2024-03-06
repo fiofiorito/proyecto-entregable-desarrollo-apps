@@ -37,3 +37,5 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primaryBgColor
   }
 })
+
+// 00:22:42
